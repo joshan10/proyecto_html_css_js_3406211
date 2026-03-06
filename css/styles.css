@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    font-size: 62.5%;
+}
+
+.encabezado-principal {
+    background-color: #000000;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+
+.encabezado-principal > nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+
+.encabezado-principal > nav > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10rem;
+}
+
+.nav-right > ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin-right: 10.5rem;
+}
+
+.nav-right > ul > li {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.nav-right > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-right > ul > span {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+
+.nav-right > div {
+    display: flex;
+    gap: 5rem;
+}
+
+.nav-right > div > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.nav-right > div > p {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 10.5rem;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 23rem 1.8rem 20rem;
+    column-gap: 1.6rem;
+    row-gap: 6.4rem;
+}
+
+.home > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
