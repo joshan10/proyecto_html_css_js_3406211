@@ -74,20 +74,20 @@ imageArea.addEventListener("click", (e) => {
 // Sistema de cursor personalizado con lerp y next/prev
 let cursorX = 0, cursorY = 0;
 let lerpX = 0, lerpY = 0;
-let animating = false;
-const LERP = 0.12;
+const LERP = 0.04; // más bajo = más lento y elástico
 
 function animateCursor() {
   lerpX += (cursorX - lerpX) * LERP;
   lerpY += (cursorY - lerpY) * LERP;
   customCursor.style.transform = `translate(${lerpX}px, ${lerpY}px)`;
-  animating = true;
   requestAnimationFrame(animateCursor);
 }
 
+// Iniciar el loop una sola vez al cargar
+animateCursor();
+
 imageArea.addEventListener('mouseenter', () => {
   customCursor.classList.add('visible');
-  if (!animating) animateCursor();
 });
 
 imageArea.addEventListener('mouseleave', () => {
@@ -95,8 +95,8 @@ imageArea.addEventListener('mouseleave', () => {
 });
 
 imageArea.addEventListener('mousemove', (e) => {
-  cursorX = e.clientX + 12;
-  cursorY = e.clientY + 12;
+  cursorX = e.clientX - 20; // desplazamiento horizontal respecto al cursor
+  cursorY = e.clientY - 35; // desplazamiento vertical — negativo = arriba del cursor
   const mitad = window.innerWidth / 2;
   customCursor.textContent = e.clientX < mitad ? 'PREV' : 'NEXT';
 });
@@ -104,13 +104,12 @@ imageArea.addEventListener('mousemove', (e) => {
 // Reloj GMT en vivo
 function updateClock() {
   const now = new Date();
-  const gmtTime = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
 
-  const hours = gmtTime.getUTCHours().toString().padStart(2, "0");
-  const minutes = gmtTime.getUTCMinutes().toString().padStart(2, "0");
-  const seconds = gmtTime.getUTCSeconds().toString().padStart(2, "0");
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
 
-  gmtClock.textContent = `${hours}:${minutes}:${seconds} (GMT)`;
+  gmtClock.textContent = `${hours}:${minutes}:${seconds} (GMT-5)`;
 }
 
 // Inicialización

@@ -105,8 +105,10 @@ main {
   position: relative;
   margin-top: 60px;
   margin-bottom: 50px;
-  cursor: none;
+  cursor: default;
 }
+
+main:hover {cursor: pointer;}
 
 .image-container {
   width: 100%;
@@ -133,6 +135,8 @@ main {
 /* Cursor personalizado */
 .custom-cursor {
   position: fixed;
+  left: 0;
+  top: 0;
   background: #ffffff;
   color: #000000;
   padding: 6px 12px;
@@ -144,12 +148,10 @@ main {
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
-  transition: opacity 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
-  left: 0;
-  top: 0;
   will-change: transform;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  /* SIN transition en opacity para que aparezca instantáneo */
 }
 
 .custom-cursor.visible {
