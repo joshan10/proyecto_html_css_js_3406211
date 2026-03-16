@@ -113,6 +113,12 @@ html{
     margin-left: 10.5rem;
 }
 
+.clock {
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
 .home {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
