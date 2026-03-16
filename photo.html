@@ -3,73 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Spiderman Portfolio</title>
+    <link rel="stylesheet" href="css/photo.css">
   </head>
   <body>
-    <header class="encabezado-principal">
-        <nav>
-            <a href="select.html">Spiderman</a>
-            <div class="nav-right">
-                <ul>
-                    <li><a href="index.html">select</a></li>
-                    <span>/</span>
-                    <li><a href="indice.html">index</a></li>
-                    <span>/</span>
-                    <li><a href="photo.html">photo</a></li>    
-                </ul>
-                <div>
-                    <a href="">info</a>
-                    <p>05:16:20 (GMT)</p>
-                </div>
-            </div>
-            
-        </nav>
+    <header>
+      <nav>
+        <a href="select.html" class="site-name">Spiderman</a>
+        <div class="nav-center">
+          <ul>
+            <li><a href="index.html">select</a></li>
+            <span>/</span>
+            <li><a href="indice.html">index</a></li>
+            <span>/</span>
+            <li><a href="photo.html">photo</a></li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <a href="">info</a>
+          <div class="clock" id="gmt-clock">00:00:00 (GMT)</div>
+        </div>
+      </nav>
     </header>
 
-    <main>
-        <div>
-            <img src="img/spiderman-img1.jpg" alt="spiderman" />
-            <img src="img/spiderman-img2.jpg" alt="spiderman" />
-            <img src="img/spiderman-img3.jpeg" alt="spiderman" />
-            <img src="img/spiderman-img4.jpg" alt="spiderman" />
-            <img src="img/spiderman-img5.jpg" alt="spiderman" />
-            <img src="img/spiderman-img6.jpeg" alt="spiderman" />
-            <img src="img/spiderman-img7.jpg" alt="spiderman" />
-            <img src="img/spiderman-img8.jpeg" alt="spiderman" />
-            <img src="img/spiderman-img9.jpg" alt="spiderman" />
-            <img src="img/spiderman-img10.jpg" alt="spiderman" />
-            
-        </div>
+    <main id="image-area">
+      <div class="image-container">
+        <!-- Las imágenes se insertarán dinámicamente aquí -->
+      </div>
     </main>
 
     <footer>
-        <span><a href="">ejemplo@gmail.com</a></span>
-        <span>photo[56]</span>
-        <span>©2026</span>
+      <span><a href="">ejemplo@gmail.com</a></span>
+      <span class="photo-counter" id="photo-counter">PHOTOS [1/10]</span>
+      <span>©2026</span>
     </footer>
-    <div>
-        <nav>
-            <span>photographic</span>
-            <a href="">2018-present</a>
-            <a href="">close</a>
-        </nav>
-        <section>
-            <div>
-                <p>Spiderman portfolio made in colombia</p>
-            </div>
-            <div>
-                <p>contact</p>
-                <a href="">@porfolioSpidermanSPM</a>
-                <a href="">ejemploSpiderman@gmail.com</a>
-            </div>
-            <div>
-                <span>code by <a href="">joshan pereira</a></span>
-                <span>2026</span>
-            </div>
 
-        </section>
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor" id="custom-cursor">NEXT</div>
 
-    </div>
+    <script src="js/photo.js"></script>
   </body>
 </html>

@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  background: #ffffff;
+  color: #000000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header fijo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-name {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-center ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+.nav-center a:hover {
+  opacity: 0.6;
+}
+
+.nav-center span {
+  color: #999;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+.nav-right a:hover {
+  opacity: 0.6;
+}
+
+.clock {
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Área principal de imagen */
+main {
+  flex: 1;
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  cursor: none;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.gallery-image.active {
+  opacity: 1;
+}
+
+/* Cursor personalizado */
+.custom-cursor {
+  position: fixed;
+  background: #ffffff;
+  color: #000000;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.custom-cursor.visible {
+  opacity: 1;
+}
+
+/* Footer fijo */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #f0f0f0;
+  z-index: 1000;
+}
+
+footer span,
+footer a {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #000000;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+footer a:hover {
+  opacity: 0.6;
+}
+
+.photo-counter {
+  font-weight: 400;
+}
