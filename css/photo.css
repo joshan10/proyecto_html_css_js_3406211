@@ -45,7 +45,7 @@ html{
 /* Header fijo */
 .encabezado-principal {
     background-color: var(--bg);
-    color: var(--cl-font);
+    color: #000000;
     padding: 2rem;
     text-align: center;
 }
@@ -58,7 +58,7 @@ html{
 
 
 .encabezado-principal > nav > a {
-    color: var(--cl-font);
+    color: #000000;
     text-decoration: none;
     font-size: 2rem;
     font-family: var(--font-primary);
@@ -79,11 +79,11 @@ html{
 
 .nav-right > ul > li {
     font-size: 1.5rem;
-    color: var(--cl-font);
+    color: #000000;
 }
 
 .nav-right > ul > li > a {
-    color: var(--cl-font);
+    color: #000000;
     text-decoration: none;
     font-size: 1.4rem;
     text-align: center;
@@ -92,7 +92,7 @@ html{
 }
 
 .nav-right > ul > span {
-    color: var(--cl-font);
+    color: #000000;
     font-size: 1.5rem;
     font: 900;
     font-family: var(--font-primary);
@@ -101,11 +101,11 @@ html{
 
 .nav-right > div {
     display: flex;
-    gap: 15rem;
+    gap: 5rem;
 }
 
 .nav-right > div > a {
-    color: var(--cl-font);
+    color: #000000;
     text-decoration: none;
     font-size: 1.5rem;
     font-size: 1.4rem;
@@ -115,14 +115,14 @@ html{
 }
 
 .nav-right > div > p {
-    color: var(--cl-font);
+    color: #000000;
     font-size: 1.5rem;
     margin-left: 10.5rem;
 }
 
 .clock {
   font-family: "Monaco", "Courier New", monospace;
-  font-size: 1rem;
+  font-size: 10px;
   letter-spacing: 0.5px;
 }
 
