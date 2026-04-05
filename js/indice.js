@@ -104,7 +104,7 @@ if (home) {
 
 // ── Info panel ───────────────────────────────────────────────────
 const boxOculta = document.querySelector('.box-oculta');
-const closeBtn = document.querySelector('.box-oculta nav a:last-child');
+const closeBtn = document.querySelector('.box-close');
 
 document.querySelectorAll('.nav-right a').forEach(a => {
   if (a.textContent.trim().toLowerCase() === 'info') {

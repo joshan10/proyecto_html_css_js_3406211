@@ -5,11 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spiderman - player</title>
   <link rel="stylesheet" href="../css/player.css">
+  <link rel="stylesheet" href="../css/responsive-player.css">
 </head>
 <body>
   <div id="cursor-custom">
-    <span id="cursor-text">(PLAY)</span>
+    <span id="cursor-text">(play)</span>
   </div>
+
+  <!-- Menú Hamburguesa -->
+  <button id="menu-toggle" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menú Lateral -->
+  <nav id="side-menu" class="side-menu">
+    <div class="menu-header">
+      <a href="../select.html">Spiderman</a>
+      <button id="menu-close" class="menu-close">×</button>
+    </div>
+    <ul class="menu-nav">
+      <li><a href="../index.html">selects</a></li>
+      <li><a href="../indice.html">index</a></li>
+      <li><a href="../photo.html">photo</a></li>
+    </ul>
+    <div class="menu-footer">
+      <a href="">info</a>
+      <div class="clock" id="gmt-clock">00:00:00 (GMT)</div>
+    </div>
+  </nav>
 
   <header class="encabezado-principal">
     <nav>
@@ -51,7 +76,43 @@
   <span id="btn-fullscreen">FULLSCREEN</span>
   
 </main>
+
+<section class="box-oculta">
+      <nav class="box-nav">
+        <span class="sp">spiderman</span>
+        <div class="box-nav-titulo">
+          <span>Photographic works</span>
+          <span>2018—Present</span>
+        </div>
+        <a href="" class="box-close">Close</a>
+      </nav>
+      <div class="box-contenido">
+        <div class="box-descripcion">
+          <p>Spiderman portfolio made<br />in Colombia.</p>
+        </div>
+        <div class="box-contacto">
+          <p>Contact</p>
+          <a href="">@porfolioSpidermanSPM</a>
+          <a href="">ejemploSpiderman@gmail.com</a>
+        </div>
+        <div class="box-accolades">
+          <p>Accolades</p>
+          <span>2026</span>
+          <span>Best portfolio — Colombia</span>
+        </div>
+        <div class="box-representacion">
+          <p>Representation</p>
+          <span>Colombia</span>
+          <a href="">Joshan Pereira</a>
+        </div>
+        <div class="box-footer">
+          <span>Code by <a href="">Joshan Pereira</a></span>
+          <span>©2026</span>
+        </div>
+      </div>
+    </section>
   <script src="../js/clock.js"></script>
   <script src="../js/player.js"></script>
+  <script src="../js/menu-hamburguesa.js"></script>
 </body>
 </html>

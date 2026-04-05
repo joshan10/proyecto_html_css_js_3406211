@@ -103,3 +103,22 @@ document.getElementById('btn-fullscreen').addEventListener('click', e => {
   e.stopPropagation();
   video.requestFullscreen();
 });
+
+const boxOculta = document.querySelector('.box-oculta');
+const closeBtn = document.querySelector('.box-close');
+
+document.querySelectorAll('.nav-right a').forEach(a => {
+  if (a.textContent.trim().toLowerCase() === 'info') {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      if (boxOculta) boxOculta.classList.add('visible');
+    });
+  }
+});
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    boxOculta.classList.remove('visible');
+  });
+}
