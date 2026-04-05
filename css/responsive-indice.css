@@ -1,0 +1,475 @@
+/* ── RESPONSIVE INDICE.HTML ─────────────────────────────────── */
+
+/* Menú Hamburguesa - Oculto por defecto */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+/* Cuando el menú está abierto, ocultar el botón hamburguesa */
+.side-menu.active ~ * .menu-toggle,
+.side-menu.active + .menu-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 998;
+  transition: right 0.3s ease;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.menu-header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1001;
+}
+
+.menu-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-nav li {
+  margin-bottom: 1rem;
+}
+
+.menu-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.menu-nav a:hover {
+  opacity: 1;
+}
+
+.menu-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.menu-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.menu-footer .clock {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .home {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16rem 1.2rem 16rem;
+    column-gap: 1rem;
+    row-gap: 0.8rem;
+  }
+
+  .card {
+    padding: 10px 18px;
+  }
+
+  .card-header {
+    font-size: 0.9rem;
+    gap: 0.8rem;
+  }
+
+  .card-texto {
+    font-size: 0.95rem;
+    padding: 0 0 1.2rem 1.8rem;
+  }
+
+  .card.is-active .card-header {
+    top: 60px;
+    left: 20px;
+  }
+
+  /* Header más compacto */
+  .encabezado-principal {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .encabezado-principal > nav > a {
+    font-size: 1.6rem;
+  }
+
+  .nav-right {
+    gap: 5rem;
+  }
+
+  .nav-right > ul {
+    margin-right: 6rem;
+    gap: 0.4rem;
+  }
+
+  .nav-right > ul > li > a {
+    font-size: 1.2rem;
+  }
+
+  .nav-right > ul > span {
+    font-size: 1.3rem;
+  }
+
+  .nav-right > div {
+    gap: 3rem;
+  }
+
+  .nav-right > div > a {
+    font-size: 1.2rem;
+  }
+
+  .clock {
+    font-size: 9px;
+  }
+
+  /* Footer optimizado */
+  footer {
+    padding: 1.2rem 1.5rem;
+    font-size: 0.9rem;
+    gap: 1.5rem;
+  }
+
+  footer > span:nth-child(2) {
+    margin-left: 0;
+  }
+}
+
+/* Tablets pequeños y móviles grandes */
+@media (max-width: 768px) {
+  .home {
+    grid-template-columns: 1fr;
+    padding: 14rem 1rem 14rem;
+    row-gap: 0.6rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .card {
+    padding: 8px 16px;
+    border-bottom: 1px solid #333;
+  }
+
+  .card-header {
+    font-size: 0.85rem;
+    gap: 0.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-texto {
+    font-size: 0.9rem;
+    padding: 0 0 1rem 1.5rem;
+  }
+
+  .card.is-active .card-header {
+    top: 56px;
+    left: 16px;
+  }
+
+  /* Header ultra-compacto */
+  .encabezado-principal {
+    padding: 1rem;
+  }
+
+  .encabezado-principal > nav {
+    gap: 1rem;
+  }
+
+  .encabezado-principal > nav > a {
+    font-size: 1.4rem;
+  }
+
+  .nav-right {
+    gap: 3rem;
+  }
+
+  .nav-right > ul {
+    margin-right: 2rem;
+    gap: 0.3rem;
+  }
+
+  .nav-right > ul > li > a {
+    font-size: 1.1rem;
+  }
+
+  .nav-right > ul > span {
+    font-size: 1.2rem;
+  }
+
+  .nav-right > div {
+    gap: 2rem;
+  }
+
+  .nav-right > div > a {
+    font-size: 1.1rem;
+  }
+
+  .clock {
+    font-size: 8px;
+  }
+
+  /* Footer compacto */
+  footer {
+    padding: 1rem;
+    font-size: 0.85rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  footer > span:nth-child(2) {
+    margin-left: 0;
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  /* Mostrar menú hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Ocultar header original */
+  .encabezado-principal {
+    display: none;
+  }
+
+  .home {
+    padding: 12rem 0.8rem 12rem;
+    row-gap: 0.5rem;
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 6px 12px;
+    border-bottom: 1px solid #444;
+  }
+
+  .card-header {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-texto {
+    font-size: 0.85rem;
+    padding: 0 0 0.8rem 1.2rem;
+  }
+
+  .card.is-active .card-header {
+    top: 52px;
+    left: 12px;
+  }
+
+  /* Header minimalista */
+  .encabezado-principal {
+    padding: 0.8rem;
+  }
+
+  .encabezado-principal > nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .encabezado-principal > nav > a {
+    font-size: 1.2rem;
+  }
+
+  .nav-right {
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-right > ul {
+    margin-right: 0;
+    gap: 0.2rem;
+  }
+
+  .nav-right > ul > li > a {
+    font-size: 1rem;
+  }
+
+  .nav-right > ul > span {
+    font-size: 1.1rem;
+  }
+
+  .nav-right > div {
+    gap: 1rem;
+  }
+
+  .nav-right > div > a {
+    font-size: 1rem;
+  }
+
+  .clock {
+    font-size: 7px;
+  }
+
+  /* Footer minimalista */
+  footer {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    gap: 0.8rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer > a {
+    order: 1;
+  }
+
+  footer > span:nth-child(2) {
+    order: 2;
+    margin-left: 0;
+  }
+
+  footer > span:nth-child(3) {
+    order: 3;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  /* Mostrar menú hamburguesa */
+  .menu-toggle {
+    display: block;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .menu-toggle span {
+    width: 16px;
+    height: 1.5px;
+  }
+
+  /* Ocultar header original */
+  .encabezado-principal {
+    display: none;
+  }
+
+  .home {
+    padding: 10rem 0.5rem 10rem;
+    row-gap: 0.4rem;
+  }
+
+  .card {
+    padding: 4px 8px;
+    border-bottom: 1px solid #555;
+  }
+
+  .card-header {
+    font-size: 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .card-texto {
+    font-size: 0.8rem;
+    padding: 0 0 0.6rem 1rem;
+  }
+
+  .card.is-active .card-header {
+    top: 48px;
+    left: 8px;
+  }
+
+  .encabezado-principal {
+    padding: 0.6rem;
+  }
+
+  .encabezado-principal > nav > a {
+    font-size: 1rem;
+  }
+
+  .nav-right > ul > li > a {
+    font-size: 0.9rem;
+  }
+
+  .nav-right > ul > span {
+    font-size: 1rem;
+  }
+
+  .nav-right > div > a {
+    font-size: 0.9rem;
+  }
+
+  .clock {
+    font-size: 6px;
+  }
+
+  footer {
+    padding: 0.6rem;
+    font-size: 0.75rem;
+    gap: 0.6rem;
+  }
+}

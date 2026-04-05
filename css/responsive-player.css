@@ -1,0 +1,387 @@
+/* ── RESPONSIVE PLAYER.HTML ─────────────────────────────────── */
+
+/* Menú Hamburguesa - Oculto por defecto */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 998;
+  transition: right 0.3s ease;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.menu-header a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.menu-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-nav li {
+  margin-bottom: 1rem;
+}
+
+.menu-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.menu-nav a:hover {
+  opacity: 1;
+}
+
+.menu-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.menu-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.menu-footer .clock {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .encabezado-principal {
+    padding: 1.5rem;
+  }
+
+  .encabezado-principal a,
+  .encabezado-principal span {
+    font-size: 1.2rem;
+  }
+
+  #video-info {
+    top: 60px;
+    left: 20px;
+    font-size: 10px;
+    gap: 10px;
+  }
+
+  #lista-videos {
+    right: 20px;
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  #contadores {
+    bottom: 50px;
+    gap: 24px;
+    font-size: 11px;
+  }
+
+  #btn-mute,
+  #btn-fullscreen {
+    font-size: 10px;
+    bottom: 20px;
+  }
+
+  #btn-mute {
+    left: 20px;
+  }
+
+  #btn-fullscreen {
+    right: 20px;
+  }
+
+  #cursor-custom {
+    font-size: 10px;
+  }
+}
+
+/* Tablets pequeños y móviles grandes */
+@media (max-width: 768px) {
+  .encabezado-principal {
+    padding: 1.2rem;
+  }
+
+  .encabezado-principal nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .encabezado-principal a,
+  .encabezado-principal span {
+    font-size: 1.1rem;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #video-info {
+    top: 56px;
+    left: 16px;
+    font-size: 9px;
+    gap: 8px;
+  }
+
+  #lista-videos {
+    right: 16px;
+    font-size: 9px;
+    gap: 5px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  #contadores {
+    bottom: 40px;
+    gap: 20px;
+    font-size: 10px;
+  }
+
+  #btn-mute,
+  #btn-fullscreen {
+    font-size: 9px;
+    bottom: 16px;
+  }
+
+  #btn-mute {
+    left: 16px;
+  }
+
+  #btn-fullscreen {
+    right: 16px;
+  }
+
+  #cursor-custom {
+    font-size: 9px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  /* Mostrar menú hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Ocultar header original */
+  .encabezado-principal {
+    display: none;
+  }
+
+  .encabezado-principal a,
+  .encabezado-principal span {
+    font-size: 1rem;
+  }
+
+  .nav-right > div {
+    gap: 1rem;
+  }
+
+  .clock {
+    font-size: 8px;
+  }
+
+  #video-info {
+    top: 52px;
+    left: 12px;
+    font-size: 8px;
+    gap: 6px;
+  }
+
+  #video-texto {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  #lista-videos {
+    right: 12px;
+    font-size: 8px;
+    gap: 4px;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  #lista-videos span {
+    padding: 2px 0;
+  }
+
+  #contadores {
+    bottom: 30px;
+    gap: 16px;
+    font-size: 9px;
+  }
+
+  #btn-mute,
+  #btn-fullscreen {
+    font-size: 8px;
+    bottom: 12px;
+  }
+
+  #btn-mute {
+    left: 12px;
+  }
+
+  #btn-fullscreen {
+    right: 12px;
+  }
+
+  #cursor-custom {
+    font-size: 8px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  /* Mostrar menú hamburguesa */
+  .menu-toggle {
+    display: block;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .menu-toggle span {
+    width: 16px;
+    height: 1.5px;
+  }
+
+  /* Ocultar header original */
+  .encabezado-principal {
+    display: none;
+  }
+
+  .encabezado-principal {
+    padding: 0.8rem;
+  }
+
+  .encabezado-principal a,
+  .encabezado-principal span {
+    font-size: 0.9rem;
+  }
+
+  .nav-right > ul {
+    gap: 0.2rem;
+  }
+
+  .clock {
+    font-size: 7px;
+  }
+
+  #video-info {
+    top: 48px;
+    left: 10px;
+    font-size: 7px;
+    gap: 4px;
+  }
+
+  #video-texto {
+    gap: 1px;
+  }
+
+  #lista-videos {
+    right: 10px;
+    font-size: 7px;
+    gap: 3px;
+    max-height: 45vh;
+  }
+
+  #contadores {
+    bottom: 25px;
+    gap: 12px;
+    font-size: 8px;
+  }
+
+  #btn-mute,
+  #btn-fullscreen {
+    font-size: 7px;
+    bottom: 10px;
+  }
+
+  #btn-mute {
+    left: 10px;
+  }
+
+  #btn-fullscreen {
+    right: 10px;
+  }
+
+  #cursor-custom {
+    font-size: 7px;
+  }
+
+  /* Ajustar menú lateral para pantallas muy pequeñas */
+  .side-menu {
+    width: 240px;
+    right: -250px;
+    padding: 1.5rem;
+  }
+
+  .menu-header a {
+    font-size: 1rem;
+  }
+
+  .menu-nav a {
+    font-size: 0.9rem;
+  }
+}
