@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiderman - player</title>
+  <link rel="stylesheet" href="../css/player.css">
+</head>
+<body>
+  <div id="cursor-custom">
+    <span id="cursor-text">(PLAY)</span>
+  </div>
+
+  <header class="encabezado-principal">
+    <nav>
+      <a href="../select.html">Spiderman</a>
+      <div class="nav-right">
+        <ul>
+          <li><a href="../index.html">selects</a></li>
+          <span>/</span>
+          <li><a href="../indice.html">index</a></li>
+          <span>/</span>
+          <li><a href="../photo.html">photo</a></li>
+        </ul>
+        <div>
+          <a href="">info</a>
+          <div class="clock" id="gmt-clock">00:00:00 (GMT)</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <video id="main-video" playsinline></video>
+<main>
+
+  <div id="video-info">
+    <span id="video-numero"></span>
+    <div id="video-texto">
+      <span id="video-nombre"></span>
+      <span id="video-autor"></span>
+    </div>
+  </div>
+
+  <div id="contadores">
+    <span id="contador-fijo">00:</span>
+    <span id="contador-tiempo">00:00</span>
+    <span id="contador-random">00:</span>
+  </div>
+  
+  <span id="btn-mute">MUTE</span>
+  <span id="btn-fullscreen">FULLSCREEN</span>
+  
+</main>
+  <script src="../js/clock.js"></script>
+  <script src="../js/player.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+@font-face {
+  font-family: "Geist Mono";
+  src: url(../font/Geist_Mono/GeistMono-VariableFont_wght.ttf) format("truetype");
+}
+@font-face {
+  font-family: 'Switzer Regular';
+  src: url(../font/Switzer/Switzer-Black.otf) format("truetype");
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --font-primary: 'Switzer Regular', monospace;
+  --font-secondary: 'Geist Mono', monospace;
+}
+
+html { font-size: 62.5%; }
+
+body {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#main-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.encabezado-principal {
+  position: fixed;
+  top: 0; width: 100%;
+  background: transparent;
+  z-index: 200;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.encabezado-principal nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encabezado-principal nav a,
+.encabezado-principal nav span,
+.encabezado-principal .clock {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+}
+
+.encabezado-principal nav > a {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.nav-right {
+  display: flex;
+  gap: 8rem;
+}
+
+.nav-right > ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin-right: 10.5rem;
+}
+
+.nav-right > div {
+  display: flex;
+  gap: 5rem;
+}
+
+.clock {
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 1rem;
+}
+
+/* CURSOR */
+#cursor-custom {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+#cursor-text {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+/* NUMERO — arriba izquierda */
+#video-numero {
+  position: fixed;
+  top: 33rem; left: 2rem;
+  z-index: 201;
+  color: #fff;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+/* NOMBRE + AUTOR — centro pantalla */
+#video-texto {
+  position: fixed;
+  right: 45rem;
+  top: calc(50% - 6rem);
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  color: #fff;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  transition: opacity 0.4s ease;
+}
+
+/* CONTADORES — agrupados a la derecha centro */
+#contadores {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 201;
+  display: flex;
+  flex-direction: row;
+  gap: 22rem;
+  text-align: right;
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+
+body.reproduciendo #contadores {
+  opacity: 1;
+}
+
+/* MUTE */
+#btn-mute {
+  position: fixed;
+  bottom: 24px; left: 24px;
+  z-index: 201;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* FULLSCREEN */
+#btn-fullscreen {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 201;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+body.reproduciendo #contadores,
+body.reproduciendo #btn-mute,
+body.reproduciendo #btn-fullscreen {
+  opacity: 1;
+  pointer-events: all;
+}
+
+body.reproduciendo #video-numero {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
