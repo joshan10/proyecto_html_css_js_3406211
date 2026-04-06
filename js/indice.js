@@ -102,6 +102,18 @@ if (home) {
   });
 }
 
+// ── Transición indice.html → index.html ──────────────────────────
+// Sin animación en indice: solo navega y pone el flag para que index.js
+// anime los videos entrando desde arriba al llegar a index.html
+document.querySelectorAll('a[href="index.html"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    if (videoEl) { videoEl.remove(); videoEl = null; }
+    sessionStorage.setItem('transicionDesdeIndice', '1');
+    window.location.href = 'index.html';
+  });
+});
+
 // ── Info panel ───────────────────────────────────────────────────
 const boxOculta = document.querySelector('.box-oculta');
 const closeBtn = document.querySelector('.box-close');

@@ -123,5 +123,21 @@ if (closeBtn) {
 document.addEventListener("DOMContentLoaded", () => {
   initializeImages();
   updatePhotoCounter();
+
+  // ── Animación de ENTRADA en photo.html ──────────────────────────
+  // La imagen aparece de arriba hacia abajo suavemente
+  if (imageContainer) {
+    imageContainer.style.transform = 'translateY(-40px)';
+    imageContainer.style.opacity = '0';
+    imageContainer.style.transition = 'none';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        imageContainer.style.transition =
+          'transform 0.85s cubic-bezier(0.22,1,0.36,1), opacity 0.7s ease';
+        imageContainer.style.transform = 'translateY(0)';
+        imageContainer.style.opacity = '1';
+      });
+    });
+  }
 });
 

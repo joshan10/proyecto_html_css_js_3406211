@@ -1,0 +1,54 @@
+/* ── Animación de underline neon en links del nav ── */
+
+/* El li necesita permitir desbordamiento vertical para la línea */
+.nav-right ul li {
+  padding-bottom: 3px;
+}
+
+/* El enlace es el contenedor de recorte */
+.nav-right ul li a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 3px;
+}
+
+/* Línea base: escondida a la izquierda dentro del propio enlace */
+.nav-right ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: currentColor;
+  opacity: 0.8;
+  box-shadow:
+    0 0 4px currentColor,
+    0 0 10px currentColor;
+  transform: translateX(-105%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Página activa: línea siempre visible */
+.nav-right ul li a.nav-active::after {
+  transform: translateX(0);
+  transition: none;
+}
+
+/* Hover: entra desde la izquierda */
+.nav-right ul li a.nav-entering::after {
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Al quitar el mouse: sale hacia la derecha */
+.nav-right ul li a.nav-leaving::after {
+  transform: translateX(105%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset instantáneo sin animación: evita el rebote de regreso a la izquierda */
+.nav-right ul li a.nav-no-transition::after {
+  transition: none !important;
+}

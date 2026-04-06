@@ -55,31 +55,52 @@ document.querySelectorAll('.card-media').forEach(media => {
 
 document.addEventListener('mouseleave', () => cleanup());
 
-// ── Transición index.html → indice.html ──────────────────────────
-const linkIndice = document.querySelector('a[href="indice.html"]');
-if (linkIndice) {
-  linkIndice.addEventListener('click', e => {
-    e.preventDefault();
-    cards.forEach((card, i) => {
-      const delay = i * 60;
-      card.style.transition =
-        `transform 0.7s cubic-bezier(0.4,0,0.2,1) ${delay}ms,
-         opacity 0.5s ease ${delay}ms`;
-      card.style.transform = 'translateY(-100vh)';
-      card.style.opacity = '0';
-      const header = card.querySelector('.card-header');
-      if (header) {
-        header.style.transition =
-          `height 0.4s ease ${delay}ms, opacity 0.4s ease ${delay}ms`;
-        header.style.overflow = 'hidden';
-        header.style.height = '0';
-        header.style.opacity = '0';
-      }
+// ── Animación de ENTRADA desde indice.html → index.html ──────────
+// Si llegamos desde indice, los videos (.card-media) entran de arriba hacia abajo
+if (sessionStorage.getItem('transicionDesdeIndice') === '1') {
+  sessionStorage.removeItem('transicionDesdeIndice');
+  const medias = document.querySelectorAll('.card-media');
+  medias.forEach(media => {
+    media.style.transform = 'translateY(-110vh)';
+    media.style.opacity = '0';
+    media.style.transition = 'none';
+  });
+  // Doble rAF para asegurar que el estado inicial se pinta antes de animar
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      medias.forEach((media, i) => {
+        const delay = i * 60;
+        media.style.transition =
+          `transform 0.75s cubic-bezier(0.22,1,0.36,1) ${delay}ms,
+           opacity 0.55s ease ${delay}ms`;
+        media.style.transform = 'translateY(0)';
+        media.style.opacity = '';
+      });
     });
-    setTimeout(() => { window.location.href = 'indice.html'; },
-      (cards.length - 1) * 60 + 750);
   });
 }
+
+// ── Transición index.html → indice.html ──────────────────────────
+// Solo los videos (.card-media) suben y desaparecen con stagger
+document.querySelectorAll('a[href="indice.html"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    cleanup();
+    const medias = document.querySelectorAll('.card-media');
+    const total = medias.length;
+    medias.forEach((media, i) => {
+      const delay = i * 55;
+      media.style.transition =
+        `transform 0.7s cubic-bezier(0.4,0,0.2,1) ${delay}ms,
+         opacity 0.5s ease ${delay}ms`;
+      media.style.transform = 'translateY(-110vh)';
+      media.style.opacity = '0';
+    });
+    sessionStorage.setItem('transicionDesdeIndex', '1');
+    setTimeout(() => { window.location.href = 'indice.html'; },
+      (total - 1) * 55 + 750);
+  });
+});
 
 // ── Click en video → abre player ────────────────────────────────
 document.querySelectorAll('.card-media').forEach(link => {
