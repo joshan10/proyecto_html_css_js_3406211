@@ -39,12 +39,16 @@ function cleanup() {
 
 
 
-cards.forEach(card => {
-  card.addEventListener('mouseenter', () => activateCard(card));
-  card.addEventListener('mouseleave', (e) => {
-    // Verificar que el cursor no entró a otra card
+// Cambiar mouseenter de .card a .card-media
+document.querySelectorAll('.card-media').forEach(media => {
+  media.addEventListener('mouseenter', () => {
+    const card = media.closest('.card');
+    activateCard(card);
+  });
+
+  media.addEventListener('mouseleave', (e) => {
     const to = e.relatedTarget;
-    const entrando = to && to.closest('.card');
+    const entrando = to && to.closest('.card-media');
     if (!entrando) cleanup();
   });
 });

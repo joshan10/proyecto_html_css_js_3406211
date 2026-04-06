@@ -1,5 +1,3 @@
-const gmtClock = document.getElementById('gmt-clock');
-
 function updateClock() {
   const now = new Date();
 
@@ -7,7 +5,14 @@ function updateClock() {
   const minutes = now.getMinutes().toString().padStart(2, '0');
   const seconds = now.getSeconds().toString().padStart(2, '0');
 
-  gmtClock.textContent = `${hours}:${minutes}:${seconds} (GMT-5)`;
+  const timeString = `${hours}:${minutes}:${seconds} (GMT-5)`;
+
+  // Update both clocks if they exist
+  const menuClock = document.getElementById('gmt-clock-menu');
+  const headerClock = document.getElementById('gmt-clock-header');
+  
+  if (menuClock) menuClock.textContent = timeString;
+  if (headerClock) headerClock.textContent = timeString;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

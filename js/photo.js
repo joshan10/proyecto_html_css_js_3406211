@@ -17,7 +17,6 @@ const imageArea = document.getElementById("image-area");
 const imageContainer = document.querySelector(".image-container");
 const photoCounter = document.getElementById("photo-counter");
 const customCursor = document.getElementById("custom-cursor");
-const gmtClock = document.getElementById("gmt-clock");
 
 // Inicializar las imágenes
 function initializeImages() {
@@ -101,17 +100,6 @@ imageArea.addEventListener('mousemove', (e) => {
   customCursor.textContent = e.clientX < mitad ? 'PREV' : 'NEXT';
 });
 
-// Reloj GMT en vivo
-function updateClock() {
-  const now = new Date();
-
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-
-  gmtClock.textContent = `${hours}:${minutes}:${seconds} (GMT-5)`;
-}
-
 const boxOculta = document.querySelector('.box-oculta');
 const closeBtn = document.querySelector('.box-close');
 
@@ -135,7 +123,5 @@ if (closeBtn) {
 document.addEventListener("DOMContentLoaded", () => {
   initializeImages();
   updatePhotoCounter();
-  updateClock();
-  setInterval(updateClock, 1000);
 });
 
